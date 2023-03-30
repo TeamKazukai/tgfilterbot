@@ -220,7 +220,7 @@ async def next_page(bot, query):
                 [
                     InlineKeyboardButton(f'💡ꜰɪʟᴇs: {len(files)}', 'dupe'),
                     InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(fᴛɪᴘs💡', 'tips')
+                    InlineKeyboardButton(f'ᴛɪᴘs💡', 'tips')
                 ]
             )
                 
