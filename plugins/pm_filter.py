@@ -401,13 +401,13 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
         0,
         [
             InlineKeyboardButton(
-                text="🎭𝐒𝐞𝐥𝐞𝐜𝐭 𝐘𝐨𝐮𝐫 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞🎭", callback_data="ident"
+                text=f"🎭𝐒𝐞𝐥𝐞𝐜𝐭 𝐘𝐨𝐮𝐫 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞🎭", callback_data="ident"
             )
         ],
     )
     req = query.from_user.id
     offset = 0
-    btn.append([InlineKeyboardButton(text="🔰ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs 🔰", callback_data=f"next_{req}_{key}_{offset}")])
+    btn.append([InlineKeyboardButton(text=f"🔰ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs 🔰", callback_data=f"next_{req}_{key}_{offset}")])
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
 
