@@ -2031,7 +2031,7 @@ async def auto_filter(client, msg, spoll=False):
 #    await m.delete()
       
     await update.reply_chat_action("typing")
-    px = await update.reply_text(f"{search}, 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠...!!!!,quote=True)
+    px = await update.reply_text(f"{search}, 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠...!!!!", quote=True)
     await px.edit_text(text=f"𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 {str(total_results)} 𝐅𝐢𝐥𝐞𝐬.")
     await asyncio.sleep(1)
     await px.delete()
