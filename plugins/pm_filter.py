@@ -209,18 +209,18 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🏷️ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'ᴛɪᴘs🏷️', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🏷️ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'ᴛɪᴘs🏷️', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
                 
@@ -231,18 +231,18 @@ async def next_page(bot, query):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🏷️ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'ᴛɪᴘs🏷️', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🏷️ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'ᴛɪᴘs🏷️', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
     try:
@@ -825,7 +825,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         reply_markup=InlineKeyboardMarkup(
                              [
                                 [
-                                     InlineKeyboardButton('📤𝐉𝐨𝐢𝐧📤', url="https://t.me/+7oxSIxY4X0c2ZGVl")
+                                     InlineKeyboardButton('📤𝐉𝐨𝐢𝐧 𝐂𝐡𝐚𝐧𝐧𝐞𝐥📤', url="https://t.me/+7oxSIxY4X0c2ZGVl")
                                  ],
                                  [
                                  InlineKeyboardButton('🧩𝐔𝐩𝐝𝐚𝐭𝐞🧩', url="https://t.me/bigmoviesworld"),
@@ -840,9 +840,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         reply_markup=InlineKeyboardMarkup(
                             [
                              [
-                              InlineKeyboardButton('📥 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖫𝗂𝗇𝗄 📥 ', url = file_send.link)
+                              InlineKeyboardButton('📥 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐋𝐢𝐧𝐤 📥 ', url = file_send.link)
                            ],[
-                              InlineKeyboardButton("⚠️ 𝖢𝖺𝗇'𝗍 𝖠𝖼𝖼𝖾𝗌𝗌 ❓ 𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾 ⚠️", url=(FILE_FORWARD))
+                              InlineKeyboardButton("⚠️ 𝐂𝐚𝐧'𝐭 𝐀𝐜𝐜𝐞𝐬𝐬 ❓ 𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞 ⚠️", url=(FILE_FORWARD))
                              ]
                             ]
                         )
@@ -1936,7 +1936,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"📬{file.file_name}📥{get_size(file.file_size)}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"📬{get_size(file.file_size)}📥{file.file_name}", url=await get_shortlink(message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
                 for file in files
@@ -1960,7 +1960,7 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🍿{file.file_name}🍿{get_size(file.file_size)}", callback_data=f'{pre}#{file.file_id}'
+                        text=f"🍿{get_size(file.file_size)}🍿{file.file_name}", callback_data=f'{pre}#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -1969,11 +1969,11 @@ async def auto_filter(client, msg, spoll=False):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"📥{file.file_name}",
+                        text=f"📤{get_size(file.file_size)}",
                         callback_data=f'{pre}#{file.file_id}',
                     ),
                     InlineKeyboardButton(
-                        text=f"📥{get_size(file.file_size)}",
+                        text=f"📥{file.file_name}",
                         callback_data=f'{pre}#{file.file_id}',
                     ),
                 ]
@@ -1986,18 +1986,18 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🔰ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔰ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
 
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🔰ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔰ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
                 
@@ -2008,17 +2008,17 @@ async def auto_filter(client, msg, spoll=False):
         if settings['auto_delete']:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🔰ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔰ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
         else:
             btn.insert(0, 
                 [
-                    InlineKeyboardButton(f'🔰ꜰɪʟᴇs: {len(files)}', 'dupe'),
-                    InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
-                    InlineKeyboardButton(f'🔰ᴛɪᴘs', 'tips')
+                    InlineKeyboardButton(f'🔰𝐅𝐢𝐥𝐞𝐬: {len(files)}', 'dupe'),
+                    InlineKeyboardButton("𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞", callback_data=f"languages#{search.replace(' ', '_')}#{key}"),
+                    InlineKeyboardButton(f'𝐈𝐧𝐟𝐨🔰', 'tips')
                 ]
             )
 
