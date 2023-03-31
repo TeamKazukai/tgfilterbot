@@ -63,6 +63,6 @@ async def set_chat_protected_content(bot, message):
     content = sourse_message.text
 #    content = message.text
 #     chat_id = message.chat.id
-    k = await bot.set_chat_protected_content(message.chat.id, content, True)
+    k = await bot.set_chat_protected_content(message.chat.id, content, protect_content=True)
      
      
