@@ -58,7 +58,7 @@ async def who_is(bot, message):
 #     )
 
 @Client.set_chat_protected_content()
-async def give_filter(client, message):
+async def set_chat_protected_content(client, message):
   
     k = await set_chat_protected_content(chat.id, True)
     return
