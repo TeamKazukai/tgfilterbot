@@ -2035,7 +2035,7 @@ async def auto_filter(client, msg, spoll=False):
     await px.edit_text(text=f"𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 {str(total_results)} 𝐅𝐢𝐥𝐞𝐬.")
     await asyncio.sleep(3)
     await px.delete()
-    await message.delete()
+#    await message.delete()
 
 
 
