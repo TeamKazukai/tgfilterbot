@@ -2030,7 +2030,7 @@ async def auto_filter(client, msg, spoll=False):
 #    await asyncio.sleep(1)
 #    await m.delete()
       
-    await client.send_chat_action(enums.ChatAction.TYPING)
+    await client.reply_chat_action(enums.ChatAction.TYPING)
     px = await message.reply_text(f"{search}, 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠...!!!!", quote=True)
     await px.edit_text(text=f"𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 {str(total_results)} 𝐅𝐢𝐥𝐞𝐬.")
     await asyncio.sleep(3)
