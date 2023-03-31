@@ -256,16 +256,16 @@ async def next_page(bot, query):
                 off_set = offset - 10
             if n_offset == 0:
                 btn.append(
-                    [InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
+                    [InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("💡ᴘᴀɢᴇ💡​", callback_data="pages"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
-                        InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
-                        InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"),
-                        InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
+                        InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
+                        InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages"),
+                        InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
         else:
@@ -277,16 +277,16 @@ async def next_page(bot, query):
                 off_set = offset - int(MAX_B_TN)
             if n_offset == 0:
                 btn.append(
-                    [InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
+                    [InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
-                        InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
-                        InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"),
-                        InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
+                        InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
+                        InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages"),
+                        InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
     except KeyError:
@@ -301,16 +301,16 @@ async def next_page(bot, query):
                 off_set = offset - 10
             if n_offset == 0:
                 btn.append(
-                    [InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
+                    [InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
-                        InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
-                        InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"),
-                        InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
+                        InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"),
+                        InlineKeyboardButton(f"💡{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}⏳️", callback_data="pages"),
+                        InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
         else:
@@ -322,16 +322,16 @@ async def next_page(bot, query):
                 off_set = offset - int(MAX_B_TN)
             if n_offset == 0:
                 btn.append(
-                    [InlineKeyboardButton("⇚ ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
+                    [InlineKeyboardButton("🦠ʙᴀᴄᴋ​", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("📚 ᴘᴀɢᴇ​", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages"), InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
-                        InlineKeyboardButton("⇚ ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
-                        InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"),
-                        InlineKeyboardButton("ɴᴇxᴛ​⇛", callback_data=f"next_{req}_{key}_{n_offset}")
+                        InlineKeyboardButton("🦠ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
+                        InlineKeyboardButton(f"⏳️{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}⏳️", callback_data="pages"),
+                        InlineKeyboardButton("ɴᴇxᴛ​⇛🦠", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
     btn.insert(0, [
@@ -401,13 +401,13 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
         0,
         [
             InlineKeyboardButton(
-                text="👇 𝖲𝖾𝗅𝖾𝖼𝗍 𝖸𝗈𝗎𝗋 𝖫𝖺𝗇𝗀𝗎𝖺𝗀𝖾𝗌 👇", callback_data="ident"
+                text="☘️𝐒𝐞𝐥𝐞𝐜𝐭 𝐘𝐨𝐮𝐫 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞☘️", callback_data="ident"
             )
         ],
     )
     req = query.from_user.id
     offset = 0
-    btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ​↭", callback_data=f"next_{req}_{key}_{offset}")])
+    btn.append([InlineKeyboardButton(text="🔹𝐁𝐚𝐜𝐤 𝐓𝐨 𝐅𝐢𝐥𝐞𝐬 🔹", callback_data=f"next_{req}_{key}_{offset}")])
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
 
@@ -504,9 +504,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton(f'♻️ ɪɴꜰᴏ', 'info'),
-                    InlineKeyboardButton("ꜰᴏʀᴍᴀᴛ​", 'format'),
-                    InlineKeyboardButton(f'ᴛɪᴘs​ ⚜', 'tips'),
+                    InlineKeyboardButton(f'🦜𝐅𝐢𝐥𝐞𝐬', 'info'),
+                    InlineKeyboardButton("🔸𝐅𝐨𝐫𝐦𝐚𝐭​🔸", 'format'),
+                    InlineKeyboardButton(f'𝐓𝐢𝐩🦜', 'tips'),
                 ],
             )
 
@@ -514,9 +514,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton(f'♻️ ɪɴꜰᴏ', 'info'),
-                    InlineKeyboardButton("ꜰᴏʀᴍᴀᴛ​", 'format'),
-                    InlineKeyboardButton(f'ᴛɪᴘs​ ⚜', 'tips'),
+                    InlineKeyboardButton(f'🦜𝐅𝐢𝐥𝐞𝐬', 'info'),
+                    InlineKeyboardButton("🔸𝐅𝐨𝐫𝐦𝐚𝐭🔸​", 'format'),
+                    InlineKeyboardButton(f'𝐓𝐢𝐩🦜', 'tips'),
                 ],
             )
 
@@ -528,9 +528,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton(f'♻️ ɪɴꜰᴏ', 'info'),
-                    InlineKeyboardButton("ꜰᴏʀᴍᴀᴛ​", 'format'),
-                    InlineKeyboardButton(f'ᴛɪᴘs​ ⚜', 'tips'),
+                    InlineKeyboardButton(f'🦜𝐅𝐢𝐥𝐞𝐬', 'info'),
+                    InlineKeyboardButton("🔸𝐅𝐨𝐫𝐦𝐚𝐭🔸​", 'format'),
+                    InlineKeyboardButton(f'𝐓𝐢𝐩🦜', 'tips'),
                 ],
             )
 
@@ -538,9 +538,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             btn.insert(
                 0,
                 [
-                    InlineKeyboardButton(f'♻️ ɪɴꜰᴏ', 'info'),
-                    InlineKeyboardButton("ꜰᴏʀᴍᴀᴛ​", 'format'),
-                    InlineKeyboardButton(f'ᴛɪᴘs​ ⚜', 'tips'),
+                    InlineKeyboardButton(f'🦜𝐅𝐢𝐥𝐞𝐬', 'info'),
+                    InlineKeyboardButton("🔸𝐅𝐨𝐫𝐦𝐚𝐭🔸​", 'format'),
+                    InlineKeyboardButton(f'𝐓𝐢𝐩🦜', 'tips'),
                 ],
             )
 
@@ -2047,22 +2047,22 @@ async def auto_filter(client, msg, spoll=False):
             settings = await get_settings(message.chat.id)
             if settings['max_btn']:
                 btn.append(
-                    [InlineKeyboardButton(f"🔹ᴘᴀɢᴇ​🔹", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton(f"💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(text=f"⏳️1/{math.ceil(int(total_results)/10)}⏳️",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛🦠",callback_data=f"next_{req}_{key}_{offset}")]
                 )
             else:
                 btn.append(
-                    [InlineKeyboardButton(f"🔹ᴘᴀɢᴇ​🔹", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton(f"💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(text=f"⏳️1/{math.ceil(int(total_results)/int(MAX_B_TN))}⏳️",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛🦠",callback_data=f"next_{req}_{key}_{offset}")]
                 )
         except KeyError:
             await save_group_settings(message.chat.id, 'max_btn', False)
             settings = await get_settings(message.chat.id)
             if settings['max_btn']:
                 btn.append(
-                    [InlineKeyboardButton(f"🔹ᴘᴀɢᴇ🔹​", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton(f"💡ᴘᴀɢᴇ💡​", callback_data="pages"), InlineKeyboardButton(text=f"⏳️1/{math.ceil(int(total_results)/10)}⏳️",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛🦠",callback_data=f"next_{req}_{key}_{offset}")]
                 )
             else:
                 btn.append(
-                    [InlineKeyboardButton(f"🔹ᴘᴀɢᴇ​🔹", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton(f"💡ᴘᴀɢᴇ​💡", callback_data="pages"), InlineKeyboardButton(text=f"⏳️1/{math.ceil(int(total_results)/int(MAX_B_TN))}⏳️",callback_data="pages"), InlineKeyboardButton(text="ɴᴇxᴛ​⇛🦠",callback_data=f"next_{req}_{key}_{offset}")]
                 )
     else:
         btn.append(
@@ -2103,7 +2103,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention} 𝐉𝐎𝐈𝐍: <a href='https://t.me/nasrani_update'>ᴛᴏᴍ</a></b>"
+        cap = f"<b>🎪 𝐌𝐨𝐯𝐢𝐞 𝐍𝐚𝐦𝐞:- {search}\n🎭 𝐔𝐬𝐞𝐫 𝐍𝐚𝐦𝐞:- {message.from_user.mention} \n🍁𝐂𝐡𝐚𝐧𝐧𝐞𝐥:- <a href='https://t.me/nasrani_update'>𝐂𝐥𝐢𝐜𝐤 𝐇𝐞𝐫𝐞</a></b>"
     if imdb and imdb.get('poster'):
         try:
             if message.chat.id == SUPPORT_CHAT_ID:
