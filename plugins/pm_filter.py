@@ -173,10 +173,10 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"🍿{file.file_name}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                        text=f"🍿{get_size(file.file_size)}", url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                     InlineKeyboardButton(
-                        text=f"🍿{get_size(file.file_size)}",
+                        text=f"🍿{file.file_name}",
                         url=await get_shortlink(query.message.chat.id, f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                     ),
                 ]
@@ -187,7 +187,7 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"📀{file.file_name}⏳️{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                        text=f"📀{get_size(file.file_size)}{file.file_name}", callback_data=f'files#{file.file_id}'
                     ),
                 ]
                 for file in files
@@ -196,10 +196,10 @@ async def next_page(bot, query):
             btn = [
                 [
                     InlineKeyboardButton(
-                        text=f"☘️{file.file_name}", callback_data=f'files#{file.file_id}'
+                        text=f"☘️{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
                     ),
                     InlineKeyboardButton(
-                        text=f"🦜{get_size(file.file_size)}",
+                        text=f"🦜{file.file_name}",
                         callback_data=f'files_#{file.file_id}',
                     ),
                 ]
@@ -2025,14 +2025,20 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(0, [
         InlineKeyboardButton(f'🔍 {search} 🔎', 'reqst1')
     ])
-   # await message.delete()
-    m=await message.reply_text("🔍") 
+#    await message.delete()
+#    m=await message.reply_text(f"{search}, 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠...!!!!") 
+#    await asyncio.sleep(1)
+#    await m.delete()
+      
+    await update.reply_chat_action("typing")
+    px = await update.reply_text(f"{search}, 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠...!!!!,quote=True)
+    await px.edit_text(text=f"𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥 {str(total_results)} 𝐅𝐢𝐥𝐞𝐬.")
     await asyncio.sleep(1)
-    await m.delete()
-   
+    await px.delete()
+    await message.delete()
 
 
-     
+
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
