@@ -41,3 +41,24 @@ async def who_is(bot, message):
     await bot.send_poll(chat_id, f"{content}", ["Yes", "No", "Maybe"])
     
 
+
+
+# @Client.on_message(filters.command("rules") & filters.group) 
+# async def r_message(client, message):
+#    protect = "/pbatch" if PROTECT_CONTENT else "batch"
+#     mention = message.from_user.mention
+#     buttons = [[
+#         InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')
+#     ]]
+#    reply_markup = InlineKeyboardMarkup(buttons)
+#     await message.reply_text(START_MESSAGE.format(message.from_user.mention, message.chat.title),
+#     protect_content=True,
+#     reply_markup=reply_markup, 
+#     parse_mode=enums.ParseMode.HTML
+#     )
+
+@Client.set_chat_protected_content()
+async def give_filter(client, message):
+  
+    k = await set_chat_protected_content(chat.id, True)
+    return
