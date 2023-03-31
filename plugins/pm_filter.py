@@ -2111,7 +2111,7 @@ async def auto_filter(client, msg, spoll=False):
                 )
             else:
                 hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                       await message.delete()
+                    
                 try:
                     if settings['auto_delete']:
                         await asyncio.sleep(IMDB_DLT_TIME)
@@ -2149,7 +2149,7 @@ async def auto_filter(client, msg, spoll=False):
                 pic = imdb.get('poster')
                 poster = pic.replace('.jpg', "._V1_UX360.jpg")
                 hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-                      await message.delete()
+                      
                 try:
                     if settings['auto_delete']:
                         await asyncio.sleep(IMDB_DLT_TIME)
@@ -2184,7 +2184,7 @@ async def auto_filter(client, msg, spoll=False):
             else:                
                 logger.exception(e)
                 fek = await message.reply_photo(photo=random.choice(NOR_IMG), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-                      await message.delete()
+                      
                 try:
                     if settings['auto_delete']:
                         await asyncio.sleep(IMDB_DLT_TIME)
@@ -2218,7 +2218,7 @@ async def auto_filter(client, msg, spoll=False):
             )
         else:
             fuk = await message.reply_photo(photo=random.choice(NOR_IMG), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-                  await message.delete()
+                  
             try:
                 if settings['auto_delete']:
                     await asyncio.sleep(IMDB_DLT_TIME)
@@ -2241,7 +2241,7 @@ async def auto_filter(client, msg, spoll=False):
                         caption=f"⚙️ {message.from_user.mention} Fɪʟᴛᴇʀ Fᴏʀ {search} Cʟᴏꜱᴇᴅ 🗑️")
                     await asyncio.sleep(37)                   
                     await thega.delete()
-                                       
+                    await message.delete()                
     if spoll:
         await msg.message.delete()
 
