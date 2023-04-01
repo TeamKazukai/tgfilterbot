@@ -28,11 +28,11 @@ from telegram.ext import CommandHandler,MessageHandler, Filters
 
 
 
-start_handler = CommandHandler('startt', startt)
+startt_handler = CommandHandler('startt', startt)
 
 attach_handler = MessageHandler(Filters.text, attach)
 
-dispatcher.add_handler(start_handler)
+dispatcher.add_handler(startt_handler)
 dispatcher.add_handler(attach_handler)
 
 
