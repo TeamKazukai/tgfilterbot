@@ -11,7 +11,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Media
 from info import BR_IMDB_TEMPLATE, LOGIN_CHANNEL, ADMINS, PROTECT_CONTENT
 from utils import extract_user, get_file_id, get_poster, last_online
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
-
+from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 import time
 from datetime import datetime
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
