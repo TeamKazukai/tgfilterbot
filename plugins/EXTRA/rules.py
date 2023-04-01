@@ -117,7 +117,7 @@ async def start_message(client, message):
 #    reply = message.reply_to_message
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
-    file_id = query.data.split("#")
+    file_id = data.split("#")
     search = message.text 
     files = await get_search_results(message.chat.id ,search.lower(), filter=True)
     files_ = await get_file_details(file_id)
