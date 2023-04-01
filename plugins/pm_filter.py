@@ -101,9 +101,10 @@ async def give_filter(client, message):
             pass
             return
         if message.chat.id != SUPPORT_CHAT_ID:
-            await global_filters(client, message)
+            global = await global_filters(client, message)
+            if global== True
         manual = await manual_filters(client, message)
-        if manual == False:
+        if manual == True:
             settings = await get_settings(message.chat.id)
             try:
                 if settings['auto_ffilter']:
