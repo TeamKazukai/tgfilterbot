@@ -57,7 +57,7 @@ async def who_is(bot, message):
 #     parse_mode=enums.ParseMode.HTML
 #     )
 
-@Client.on_message(filters.command("pic") & filters & photo)
+@Client.on_message(filters.command("pic") & filters.photo)
 async def set_profile_photo(bot, message):
     profile_photo = message.reply_to_message.photo
     await bot.set_profile_photo(profile_photo)
