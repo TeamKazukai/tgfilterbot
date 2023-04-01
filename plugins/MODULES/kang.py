@@ -20,7 +20,7 @@ from telegram.utils.helpers import escape_markdown
 
 from telegram import Message, Chat, MessageEntity, InlineQueryResultArticle
 from os import path
-
+from telegram import ParseMode
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
 
@@ -33,7 +33,7 @@ except KeyError as e:
     LOGGER.error("BOT_TOKEN env variables missing! Exiting now")
     exit(1)
 
-updater = telegram.ext.Updater(token=BOT_TOKEN)
+updater = telegram.ext.Updater(token=BOT_TOKEN, use_context=True)
 bot = updater.bot
 dispatcher = updater.dispatcher
 
@@ -277,6 +277,20 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
 
 
+
+def attach(update, context):
+  if update.message.reply_to_message == None:
+    update.message.reply_text("Reply to a media to get an attached Media")
+  else:
+    m = context.bot.forward_message("@" + Config.CHANNEL_USERNAME, update.effective_chat.id, update.message.reply_to_message.message_id)
+    m_id = m.message_id
+    link = "https://t.me/{}/{}".format(Config.CHANNEL_USERNAME, m_id)
+    print(link)
+    context.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
+
+
+
+
 kang_handler = CommandHandler('kang', kang, pass_args=True)
 kangurl_handler = CommandHandler('kangurl', kangurl, pass_args=True)
 start_handler = CommandHandler('starts', starts)
@@ -284,6 +298,8 @@ start_handler = CommandHandler('starts', starts)
 dispatcher.add_handler(kang_handler)
 dispatcher.add_handler(kangurl_handler)
 dispatcher.add_handler(start_handler)
+
+attach_handler = MessageHandler(Filters.text, attach)
 
 updater.start_polling(timeout=15, read_latency=4)
 
