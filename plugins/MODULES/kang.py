@@ -33,7 +33,7 @@ except KeyError as e:
     LOGGER.error("BOT_TOKEN env variables missing! Exiting now")
     exit(1)
 
-updater = telegram.ext.Updater(token=BOT_TOKEN, use_context=True)
+updater = telegram.ext.Updater(token=BOT_TOKEN)
 bot = updater.bot
 dispatcher = updater.dispatcher
 
@@ -278,15 +278,15 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
 
 
 
-def attach(update, context):
-  if update.message.reply_to_message == None:
-    update.message.reply_text("Reply to a media to get an attached Media")
+def attach(bot, update):
+  if bot.message.reply_to_message == None:
+    bot.message.reply_text("Reply to a media to get an attached Media")
   else:
-    m = context.bot.forward_message("@" + Config.CHANNEL_USERNAME, update.effective_chat.id, update.message.reply_to_message.message_id)
+    m = update.bot.forward_message("@" + bigmoviesworld, bot.effective_chat.id, bot.message.reply_to_message.message_id)
     m_id = m.message_id
-    link = "https://t.me/{}/{}".format(Config.CHANNEL_USERNAME, m_id)
+    link = "https://t.me/{}/{}".format(bigmoviesworld, m_id)
     print(link)
-    context.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
+    update.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
 
 
 
