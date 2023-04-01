@@ -25,3 +25,12 @@ FORWARD_MESSAGE = bool(os.environ.get("FORWARD_MESSAGE"))
 ADMINS = list(int(i.strip()) for i in os.environ.get("ADMINS").split(",")) if os.environ.get("ADMINS") else []
 SOURCE_CODE = "💕SHARE AND SUPPORT💕"
 CHANNELS = bool(os.environ.get("CHANNELS"))
+
+
+# attach
+import os
+
+class Config(object):
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+  #CHANNEL_USERNAME without '@'
+  CHANNEL_USERNAME = os.environ.get("CHANNEL_USERNAME", "")
