@@ -57,11 +57,9 @@ async def who_is(bot, message):
 #     parse_mode=enums.ParseMode.HTML
 #     )
 
-@Client.on_message(filters.set_chat_protected_content)
-async def set_chat_protected_content(bot, message):
-    await bot.set_chat_protected_content(
-    message.chat.id,
-    protect_content=True)
-    return
-    await bot.set_chat_protected_content(True)
-     
+@Client.on_message(filters.command("pic") & filters & photo)
+async def bot.set_profile_photo(bot, message):
+    profile_photo = message.reply_to_message.photo
+    await bot.set_profile_photo(profile_photo)
+
+
