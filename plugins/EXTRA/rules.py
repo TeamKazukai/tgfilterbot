@@ -118,9 +118,9 @@ async def start_message(client, message):
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
     search = message.text 
-    ident, file_id, rid = message.data.split("#")
+    files = await get_search_results(message.chat.id, search, filter=True)
     files_ = await get_file_details(file_id)
-             
+    message = msg.message.reply_to_message       
     imdb = await get_poster(search) if IMDB else None 
     if imdb:
 
@@ -160,7 +160,7 @@ async def start_message(client, message):
         try:
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
-                InlineKeyboardButton("𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩", url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")           
+                InlineKeyboardButton("𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             await message.reply_photo(photo=imdb.get('poster'), caption=cap,
@@ -173,7 +173,7 @@ async def start_message(client, message):
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
-                InlineKeyboardButton("𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲", url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")           
+                InlineKeyboardButton("𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")           
             ]]
             hmm = await message.reply_photo(photo=poster, caption=cap,
             reply_markup=reply_markup,
