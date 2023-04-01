@@ -118,7 +118,7 @@ async def start_message(client, message):
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
     search = message.text 
-    files, n_offset, total = await get_search_results(message.chat.id, search, offset=offset, filter=True)            
+    files = await get_search_results(message.chat.id, search, filter=True)            
     imdb = await get_poster(searchh) if IMDB else None 
     if imdb:
 
