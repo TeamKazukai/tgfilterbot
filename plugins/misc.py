@@ -161,7 +161,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         text=f"{imdb.get('title')}",
-                        url=imdb['url'],
+                        callback_data="r",
                     )
                 ]
             ]
@@ -217,11 +217,10 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         
 
         
-# @Client.on_callback_query()
-#async def callback(bot: Client, query: CallbackQuery):
-#    if query.data== "r":
-#        await query.message.edit(
-#            text=f"ok da"
-#        )
-#    elif query.data == "rend":
-#        await query.answer(text=script.RENDERING_TXT, show_alert=True)
+@Client.on_callback_query()
+async def callback(bot: Client, qy: CallbackQuery):
+    if qy.data== "r":
+        await query.message.edit(
+            text=f"ok da"
+        )
+    
