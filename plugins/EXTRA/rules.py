@@ -121,7 +121,7 @@ async def start_message(client, message):
 #    title = files.file_name
 #    size = get_size(files.file_size)
     search = message.text 
-    files = await get_search_results(message.chat.id, search, filter=True)
+    files = await get_search_results(message.chat.id ,search.lower(), filter=True)
     files_ = await get_file_details(file_id)
     message = msg.message.reply_to_message       
     imdb = await get_poster(search) if IMDB else None 
