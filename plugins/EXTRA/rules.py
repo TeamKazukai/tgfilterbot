@@ -159,7 +159,7 @@ async def start_message(client, message):
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            await message.reply_photo(photo=imdb.get('poster'), search=search,
+            await message.reply_photo(photo=imdb.get('poster'), caption=imdb.get('title') ,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
@@ -170,7 +170,7 @@ async def start_message(client, message):
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
-            hmm = await message.reply_photo(photo=poster, search=search,
+            hmm = await message.reply_photo(photo=poster, caption=imdb.get('title') ,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
