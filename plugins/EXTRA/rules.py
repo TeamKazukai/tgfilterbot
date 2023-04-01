@@ -112,7 +112,9 @@ async def r_message(client, message):
 
 @Client.on_message(filters.private & filters.command("new") & filters.user(ADMINS))             
 async def start_message(client, message):
-    reply = message.reply_to_message
+    sourse_message = message.reply_to_message
+    title = sourse_message.text 
+#    reply = message.reply_to_message
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
     searchh = message.text                 
@@ -157,7 +159,7 @@ async def start_message(client, message):
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap,
+            await message.reply_photo(photo=imdb.get('poster'), title=title,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
@@ -168,7 +170,7 @@ async def start_message(client, message):
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
-            hmm = await message.reply_photo(photo=poster, caption=cap,
+            hmm = await message.reply_photo(photo=poster, title=title,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
