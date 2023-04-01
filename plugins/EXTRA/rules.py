@@ -76,7 +76,7 @@ START_MESSAGE = """
 𝐆𝐫𝐨𝐮𝐩 𝐍𝐚𝐦𝐞 :- {}
 """
 UP_MESSAGE = """
-{} 𝐌𝐨𝐯𝐢𝐞 𝐀𝐝𝐝𝐞𝐝 𝐓𝐡𝐢𝐬 𝐆𝐫𝐨𝐮𝐩
+{} {} 𝐌𝐨𝐯𝐢𝐞 𝐀𝐝𝐝𝐞𝐝 𝐓𝐡𝐢𝐬 𝐆𝐫𝐨𝐮𝐩
 """
 
 
@@ -116,14 +116,48 @@ async def start_message(client, message):
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
     searchh = message.text                 
-    imdb = await get_poster(searchh) if IMDB else None                             
+    imdb = await get_poster(searchh) if IMDB else None 
+    if imdb:
+
+        cap = IMDB_TEMPLATE.format(
+        query=searchh,
+        title=imdb['title'],
+        votes=imdb['votes'],
+        aka=imdb["aka"],
+        seasons=imdb["seasons"],
+        box_office=imdb['box_office'],
+        localized_title=imdb['localized_title'],
+        kind=imdb['kind'],
+        imdb_id=imdb["imdb_id"],
+        cast=imdb["cast"],
+        runtime=imdb["runtime"],
+        countries=imdb["countries"],
+        certificates=imdb["certificates"],
+        languages=imdb["languages"],
+        director=imdb["director"],
+        writer=imdb["writer"],
+        producer=imdb["producer"],
+        composer=imdb["composer"],
+        cinematographer=imdb["cinematographer"],
+        music_team=imdb["music_team"],
+        distributors=imdb["distributors"],
+        release_date=imdb['release_date'],
+        year=imdb['year'],
+        genres=imdb['genres'],
+        poster=imdb['poster'],
+        plot=imdb['plot'],
+        rating=imdb['rating'],
+        url=imdb['url'],
+        **locals()
+
+    )                           
     if imdb and imdb.get('poster'):
         try:
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            await message.reply_photo(photo=imdb.get('poster'), caption=UP_MESSAGE.format(message.text),
+            await message.reply_photo(photo=imdb.get('poster'), caption=UP_MESSAGE.format(message.text, title),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
