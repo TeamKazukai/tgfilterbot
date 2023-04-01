@@ -140,6 +140,7 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 MAX_B_TN = environ.get("MAX_B_TN", "7")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "False")), False)
 S_GROUP = environ.get('S_GROUP',"https://t.me/nasrani_update")
+BATCH_LINK = environ.get('BATCH_LINK',"https://t.me/nasrani_update")
 MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/nasrani_update")
 FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/bigmoviesworld")
 MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
