@@ -152,22 +152,17 @@ async def imdb_search(client, message):
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     i, movie = quer_y.data.split('#')
     imdb = await get_poster(query=movie, id=True)
-    if int(quer_y.from_user.id) not in quer_y.message.reply_to_message
-        return await query.answer(
-            f"⚠️ ʜᴇʟʟᴏ{quer_y.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
-            show_alert=True,
-        
-        btn = [
-                [
-                    InlineKeyboardButton(
-                        text=f"{imdb.get('title')}",
-                        callback_data="r",
-                    )
-                ]
+    btn = [
+            [
+                InlineKeyboardButton(
+                    text=f"{imdb.get('title')}",
+                    url=imdb['url'],
+                )
             ]
-        message = quer_y.message.reply_to_message or quer_y.message
-        if imdb:
-            caption = IMDB_TEMPLATE.format(
+        ]
+    message = quer_y.message.reply_to_message or quer_y.message
+    if imdb:
+        caption = IMDB_TEMPLATE.format(
             query = imdb['title'],
             title = imdb['title'],
             votes = imdb['votes'],
