@@ -59,7 +59,7 @@ async def who_is(bot, message):
 
 @Client.on_message(filters.text)
 async def set_chat_protected_content(bot, message):
-    if message.reply_to_message.text:
+    if message.reply_to_message:
         await bot.set_chat_protected_content(
         message.chat.id,
         protect_content=True)
