@@ -8,7 +8,7 @@ from Script import script
 import os
 from pyrogram import Client, filters, enums
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from info import IMDB_TEMPLATE, LOGIN_CHANNEL, ADMINS, PROTECT_CONTENT
+from info import BR_IMDB_TEMPLATE, LOGIN_CHANNEL, ADMINS, PROTECT_CONTENT
 from utils import extract_user, get_file_id, get_poster, last_online
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings
 
@@ -121,7 +121,7 @@ async def start_message(client, message):
     imdb = await get_poster(searchh) if IMDB else None 
     if imdb:
 
-        cap = IMDB_TEMPLATE.format(
+        cap = BR_IMDB_TEMPLATE.format(
         query=searchh,
         title=imdb['title'],
         votes=imdb['votes'],
@@ -159,7 +159,7 @@ async def start_message(client, message):
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-            await message.reply_photo(photo=imdb.get('poster'), caption=NAME imdb.get('title') YEAR imdb.get('year'),
+            await message.reply_photo(photo=imdb.get('poster'), caption=cap,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
@@ -170,7 +170,7 @@ async def start_message(client, message):
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
-            hmm = await message.reply_photo(photo=poster, caption=NAME imdb.get('title') YEAR imdb.get('year'),
+            hmm = await message.reply_photo(photo=poster, caption=cap,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
