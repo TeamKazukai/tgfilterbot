@@ -277,7 +277,7 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
 
 
-
+@run_async
 def attach(bot, update):
   if bot.message.reply_to_message == None:
     bot.message.reply_text("Reply to a media to get an attached Media")
@@ -294,12 +294,13 @@ def attach(bot, update):
 kang_handler = CommandHandler('kang', kang, pass_args=True)
 kangurl_handler = CommandHandler('kangurl', kangurl, pass_args=True)
 start_handler = CommandHandler('starts', starts)
+attach_handler = CommandHandler('attach', attach)
 
 dispatcher.add_handler(kang_handler)
 dispatcher.add_handler(kangurl_handler)
 dispatcher.add_handler(start_handler)
+dispatcher.add_handler(attach_handler)
 
-attach_handler = MessageHandler(Filters.text, attach)
 
 updater.start_polling(timeout=15, read_latency=4)
 
