@@ -63,5 +63,5 @@ async def set_chat_protected_content(bot, message):
     message.chat.id,
     protect_content=True)
     return
-        await bot.set_chat_protected_content=True
+    await bot.set_chat_protected_content=True
      
