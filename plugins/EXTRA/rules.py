@@ -156,7 +156,8 @@ async def start_message(client, message):
     if imdb and imdb.get('poster'):
         try:
             buttons = [[
-                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
+                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
+                InlineKeyboardButton("𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩", callback_data=f"{pre}#{file_id}")           
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             await message.reply_photo(photo=imdb.get('poster'), caption=cap,
@@ -168,7 +169,8 @@ async def start_message(client, message):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             buttons = [[
-                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
+                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
+                InlineKeyboardButton("𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲", callback_data=f"{pre}#{file_id}")           
             ]]
             hmm = await message.reply_photo(photo=poster, caption=cap,
             reply_markup=reply_markup,
