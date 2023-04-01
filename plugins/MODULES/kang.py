@@ -278,15 +278,17 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
 
 
 @run_async
-def attach(bot, update):
-  if bot.message.reply_to_message == None:
-    bot.message.reply_text("Reply to a media to get an attached Media")
+def attach(update, context):
+  if update.message.reply_to_message == None:
+    update.message.reply_text("""Hei Follow These Steps..
+1. Send any File/media
+2. Reply Then Add text which you want to generate the attached post.""")
   else:
-    m = update.bot.forward_message("@" + bigmoviesworld, bot.effective_chat.id, bot.message.reply_to_message.message_id)
+    m = context.bot.forward_message("@" + Config.CHANNEL_USERNAME, update.effective_chat.id, update.message.reply_to_message.message_id)
     m_id = m.message_id
-    link = "https://t.me/{}/{}".format(bigmoviesworld, m_id)
+    link = "https://t.me/{}/{}".format(Config.CHANNEL_USERNAME, m_id)
     print(link)
-    update.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
+    context.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
 
 
 
