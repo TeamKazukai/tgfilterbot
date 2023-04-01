@@ -168,7 +168,7 @@ async def start_message(client, message):
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
-            hmm = await message.reply_photo(photo=poster,  caption=caption=cap,
+            hmm = await message.reply_photo(photo=poster, caption=cap,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
