@@ -111,20 +111,17 @@ async def r_message(client, message):
 
 
 @Client.on_message(filters.private & filters.command("new") & filters.user(ADMINS))             
-async def start_message(client, message):
-    search = message.reply_to_message
-#    search = message.text 
-
+async def start_message(client, message):    
+    searchh = message.text 
 # @Client.on_message(filters.private & filters.forwarded)
-# async def start_message(client, message):    
-#    search = message.message.reply_to_message.text       
-    imdb = await get_poster(search) if IMDB else None
+# async def start_message(client, message):           
+    imdb = await get_poster(searchh) if IMDB else None
     
 
     if imdb:
 
         cap = BR_IMDB_TEMPLATE.format(
-        query=search,
+        query=searchh,
         title=imdb['title'],
         votes=imdb['votes'],
         aka=imdb["aka"],
