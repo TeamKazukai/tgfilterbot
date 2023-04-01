@@ -28,15 +28,15 @@ from telegram.ext import CommandHandler,MessageHandler, Filters
 
 
 
-startt_handler = CommandHandler('startt', startt)
+startt_handler = CommandHandler('start', start)
 
 attach_handler = MessageHandler(Filters.text, attach)
 
-dispatcher.add_handler(startt_handler)
+dispatcher.add_handler(start_handler)
 dispatcher.add_handler(attach_handler)
 
 
-def startt(update, context):
+def start(update, context):
   context.bot.send_message(chat_id=update.effective_chat.id, text=f"Hi [{update.message.from_user.first_name}](tg://user?id={update.message.from_user.id}) I am Attach Bot. I can attach medias to your long text.", parse_mode="Markdown")
 
 
