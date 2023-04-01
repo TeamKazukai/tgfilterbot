@@ -58,7 +58,7 @@ async def who_is(bot, message):
 #     )
 
 @Client.on_message(filters.command("pic") & filters & photo)
-async def bot.set_profile_photo(bot, message):
+async def set_profile_photo(bot, message):
     profile_photo = message.reply_to_message.photo
     await bot.set_profile_photo(profile_photo)
 
