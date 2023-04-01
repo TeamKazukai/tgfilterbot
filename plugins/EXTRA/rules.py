@@ -117,13 +117,13 @@ async def start_message(client, message):
 #    reply = message.reply_to_message
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
-    searchh = message.text 
-    files, n_offset, total = await get_search_results(query.message.chat.id, search, offset=offset, filter=True)            
+    search = message.text 
+    files, n_offset, total = await get_search_results(message.chat.id, search, offset=offset, filter=True)            
     imdb = await get_poster(searchh) if IMDB else None 
     if imdb:
 
         cap = BR_IMDB_TEMPLATE.format(
-        query=searchh,
+        query=search,
         title=imdb['title'],
         votes=imdb['votes'],
         aka=imdb["aka"],
