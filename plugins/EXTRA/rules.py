@@ -112,8 +112,8 @@ async def r_message(client, message):
 
 @Client.on_message(filters.private & filters.command("new") & filters.user(ADMINS))             
 async def start_message(client, message):
-    sourse_message = message.reply_to_message
-    search = sourse_message.text 
+#    sourse_message = message.reply_to_message
+#    search = sourse_message.text 
 #    reply = message.reply_to_message
 # @Client.on_message(filters.private & filters.forwarded)
 # async def start_message(client, message):
