@@ -27,8 +27,6 @@ from telegram.ext import CommandHandler,MessageHandler, Filters
 
 
 
-updater = Updater(token=Config.BOT_TOKEN, use_context=True)
-dispatcher = updater.dispatcher
 
 start_handler = CommandHandler('startt', startt)
 
