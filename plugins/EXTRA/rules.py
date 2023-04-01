@@ -119,7 +119,7 @@ async def start_message(client, message):
 # async def start_message(client, message):
     search = message.text 
     files = await get_search_results(message.chat.id, search, filter=True)            
-    imdb = await get_poster(searchh) if IMDB else None 
+    imdb = await get_poster(search) if IMDB else None 
     if imdb:
 
         cap = BR_IMDB_TEMPLATE.format(
