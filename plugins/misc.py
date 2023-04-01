@@ -217,10 +217,3 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         
 
         
-@Client.on_callback_query()
-async def callback(bot: Client, quer_y: CallbackQuery):
-    if quer_y.data== "r":
-        await query.message.edit(
-            text=f"ok da"
-        )
-    
