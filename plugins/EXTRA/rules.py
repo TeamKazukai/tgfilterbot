@@ -173,7 +173,7 @@ async def start_message(client, message):
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
-                InlineKeyboardButton("𝐒𝐮𝐫𝐩𝐫𝐢𝐬𝐞", url=https://telegram.me/{temp.U_NAME}?start"),
+                InlineKeyboardButton("𝐒𝐮𝐫𝐩𝐫𝐢𝐬𝐞", url=f"https://telegram.me/{temp.U_NAME}?start"),
                 InlineKeyboardButton('𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲', url=f'(BATCH_LINK)')           
             ]]
             hmm = await message.reply_photo(photo=poster, caption=cap,
