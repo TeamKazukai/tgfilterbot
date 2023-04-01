@@ -123,7 +123,52 @@ async def start_message(client, message):
     files = await get_search_results(message.chat.id ,search.lower(), filter=True)
     files_ = await get_file_details(file_id)
 #    message = message.message.reply_to_message       
-    imdb = await get_poster(search) if IMDB else None 
+    imdb = await get_poster(search) if IMDB else None
+    if AUTH_CHANNEL and not await is_subscribed(client, message):
+        try:
+            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
+        except ChatAdminRequired:
+            logger.error("Make sure Bot is admin in Forcesub channel")
+            return
+        btn = [
+                [
+                    InlineKeyboardButton(
+                        "JOIN CHANNEL", url=invite_link.invite_link
+                    ),
+                    InlineKeyboardButton(
+                        text="NEW MOVIES",
+                        url="https://t.me/+cACZdXU2LH8xOGE1"
+                    ),
+                ]
+                
+            ]
+        
+        if message.command[1] != "subscribe":
+            try:
+                kk, file_id = message.command[1].split("_", 1)
+                pre = 'checksubp' if kk == 'filep' else 'checksub' 
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", callback_data=f"{pre}#{file_id}")])
+            except (IndexError, ValueError):
+                btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
+        m=await message.reply_sticker("CAACAgUAAxkBAAINdmL9uWnC3ptj9YnTjFU4YGr5dtzwAAIEAAPBJDExieUdbguzyBAeBA")
+        await asyncio.sleep(1)
+        await m.delete()
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="**PLEASE JOIN MY UPDATES CHANNEL TO USE TRY AGAIN BUTTON!**",
+            reply_markup=InlineKeyboardMarkup(btn),
+            parse_mode=enums.ParseMode.MARKDOWN
+            )
+        
+        return
+
+    data = message.command[1]
+    try:
+        pre, file_id = data.split('_', 1)
+    except:
+        file_id = data
+        pre
+
     if imdb:
 
         cap = BR_IMDB_TEMPLATE.format(
@@ -162,7 +207,8 @@ async def start_message(client, message):
         try:
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
-                InlineKeyboardButton("𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")           
+                InlineKeyboardButton("𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩", callback_data=f"{pre}#{file_id}"),
+                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')      
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             await message.reply_photo(photo=imdb.get('poster'), caption=cap,
@@ -175,7 +221,8 @@ async def start_message(client, message):
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             buttons = [[
                 InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update'),
-                InlineKeyboardButton("𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲", url=f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")           
+                InlineKeyboardButton("𝐋𝐞𝐭𝐞𝐬𝐭 𝐓𝐫𝐲", callback_data=f"{pre}#{file_id}"),
+                InlineKeyboardButton('𝐉𝐨𝐢𝐧 𝐆𝐫𝐨𝐮𝐩', url=f'http://t.me/nasrani_update')           
             ]]
             hmm = await message.reply_photo(photo=poster, caption=cap,
             reply_markup=reply_markup,
