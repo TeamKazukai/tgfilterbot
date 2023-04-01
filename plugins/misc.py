@@ -150,12 +150,13 @@ async def imdb_search(client, message):
 
 @Client.on_callback_query(filters.regex('^imdb'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
-    if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
+    i, movie = quer_y.data.split('#')
+    imdb = await get_poster(query=movie, id=True)
+    if int(quer_y.from_user.id) not in [quer_y.message.reply_to_message.from_user.id, 0]:
         return await query.answer(
-            f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
+            f"⚠️ ʜᴇʟʟᴏ{quer_y.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
             show_alert=True,
-        i, movie = quer_y.data.split('#')
-        imdb = await get_poster(query=movie, id=True)
+        
         btn = [
                 [
                     InlineKeyboardButton(
