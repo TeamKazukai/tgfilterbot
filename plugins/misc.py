@@ -160,7 +160,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
                 [
                     InlineKeyboardButton(
                         text=f"{imdb.get('title')}",
-                        callback_data=f'{imdb.get('title')}', show_alert=True,
+                        url=imdb['url'],
                     )
                 ]
             ]
