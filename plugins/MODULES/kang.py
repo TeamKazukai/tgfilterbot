@@ -277,16 +277,16 @@ def makepack_internal(msg, user, png_sticker, emoji, bot, packname, packnum):
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
 
 
-@run_async
+
 def attach(update, context):
   if update.message.reply_to_message == None:
     update.message.reply_text("""Hei Follow These Steps..
 1. Send any File/media
 2. Reply Then Add text which you want to generate the attached post.""")
   else:
-    m = context.bot.forward_message("@" + Config.CHANNEL_USERNAME, update.effective_chat.id, update.message.reply_to_message.message_id)
+    m = context.bot.forward_message("@" + bigmoviesworld, update.effective_chat.id, update.message.reply_to_message.message_id)
     m_id = m.message_id
-    link = "https://t.me/{}/{}".format(Config.CHANNEL_USERNAME, m_id)
+    link = "https://t.me/{}/{}".format(bigmoviesworld, m_id)
     print(link)
     context.bot.send_message(update.effective_chat.id, update.message.text + "[{}]({})".format("\u2063", link), parse_mode=ParseMode.MARKDOWN)
 
