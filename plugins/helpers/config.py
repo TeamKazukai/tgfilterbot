@@ -33,4 +33,4 @@ CHANNELS = bool(os.environ.get("CHANNELS"))
 class Config(object):
   BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
   #CHANNEL_USERNAME without '@'
-  CHANNEL_USERNAME = os.environ.get("CHANNEL_USERNAME", "")
+  CHANNEL_USERNAME = os.environ.get("CHANNEL_USERNAME", "bigmoviesworld")
