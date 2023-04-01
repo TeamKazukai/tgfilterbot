@@ -101,24 +101,23 @@ async def give_filter(client, message):
             pass
             return
         if message.chat.id != SUPPORT_CHAT_ID:
-            global = await global_filters(client, message)
-            if global== True
-                manual = await manual_filters(client, message)
-                if manual == True:
-                    settings = await get_settings(message.chat.id)
+            await global_filters(client, message)          
+        manual = await manual_filters(client, message)
+        if manual == True:
+            settings = await get_settings(message.chat.id)
+            try:
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message)
+            except KeyError:
+                grpid = await active_connection(str(message.from_user.id))
+                await save_group_settings(grpid, 'auto_ffilter', False)
+                settings = await get_settings(message.chat.id)
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message) 
                     try:
-                        if settings['auto_ffilter']:
-                            await auto_filter(client, message)
-                    except KeyError:
-                        grpid = await active_connection(str(message.from_user.id))
-                        await save_group_settings(grpid, 'auto_ffilter', False)
-                        settings = await get_settings(message.chat.id)
-                        if settings['auto_ffilter']:
-                            await auto_filter(client, message) 
-                            try:
-                                await message.delete()
-                            except:
-                                pass
+                        await message.delete()
+                    except:
+                        pass
 
 # @Client.on_message(filters.private & filters.text & filters.incoming)
 # async def pm_text(bot, message):
