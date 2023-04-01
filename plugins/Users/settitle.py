@@ -57,11 +57,11 @@ async def who_is(bot, message):
 #     parse_mode=enums.ParseMode.HTML
 #     )
 
-@Client.on_message(filters.text)
+@Client.on_message(filters.set_chat_protected_content)
 async def set_chat_protected_content(bot, message):
-    if message.reply_to_message:
-        await bot.set_chat_protected_content(
-        message.chat.id,
-        protect_content=True)
-     
+    await bot.set_chat_protected_content(
+    message.chat.id,
+    protect_content=True)
+    return
+        protect_content=True
      
