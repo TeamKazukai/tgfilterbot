@@ -121,8 +121,8 @@ async def inline(bot, update):
             )
 
             except Exception as error:
-            print(error)
-    await update.answer(answers)
+                print(error)
+        await update.answer(answers)
 def google(query):
     r = requests.get(API + requote_uri(query))
     informations = r.json()["results"][:50]
