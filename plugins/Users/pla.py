@@ -120,7 +120,7 @@ async def inline(bot, update):
                 )
             )
 
-        except Exception as error:
+            except Exception as error:
             print(error)
     await update.answer(answers)
 def google(query):
