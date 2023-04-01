@@ -28,7 +28,7 @@ from telegram.ext import CommandHandler,MessageHandler, Filters
 
 
 
-startt_handler = CommandHandler('start', start)
+start_handler = CommandHandler('start', start)
 
 attach_handler = MessageHandler(Filters.text, attach)
 
