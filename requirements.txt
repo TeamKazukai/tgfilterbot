@@ -39,3 +39,6 @@ python-decouple
 pyshorteners
 
 gTTS
+
+dotenv
+play_scraper
