@@ -212,3 +212,11 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
         
 
         
+# @Client.on_callback_query()
+async def callback(bot: Client, query: CallbackQuery):
+    if query.data== "r":
+        await query.message.edit(
+            text=f"ok da"
+        )
+    elif query.data == "rend":
+        await query.answer(text=script.RENDERING_TXT, show_alert=True)
