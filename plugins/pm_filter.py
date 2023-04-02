@@ -2275,7 +2275,7 @@ async def give_filter(client,message):
 # async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
-    name = text or message.text
+    name = message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
@@ -2418,7 +2418,7 @@ async def give_filter(client,message):
 # async def global_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
-    name = text or message.text
+    name = message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
     keywords = await get_gfilters('gfilters')
     for keyword in reversed(sorted(keywords, key=len)):
