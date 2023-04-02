@@ -53,9 +53,9 @@ async def save_group(bot, message):
                         await (temp.MELCOW['welcome']).delete()
                     except:
                         pass
-                temp.MELCOW['welcome'] = await message.reply_sticker(
-                                                 sticker="CAACAgUAAxkBAAEUITVkDglLmbrE00xjQRMoi1oCJyYPDQAC0gcAArwmiVSTwrq-v5Wohx4E",
-                                                 caption=f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞  𝐓𝐨 𝐂𝐡𝐚𝐧𝐧𝐞𝐥",
+                temp.MELCOW['welcome'] = await message.reply_video(
+                                                 video="https://telegra.ph/file/53e47d78206577914c487.mp4",
+                                                 caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
                                                                            InlineKeyboardButton('ᴊᴏɪɴ ɢʀᴏᴜᴘ', url=S_GROUP),
