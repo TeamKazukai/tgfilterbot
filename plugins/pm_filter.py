@@ -2501,7 +2501,7 @@ async def manual_filters(client, message, text=True):
 
 # @Client.on_message(filters.group & filters.text & filters.incoming)
 # async def manual_filters(client, message):
-async def manual_filters(client, message, text=True):
+async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
