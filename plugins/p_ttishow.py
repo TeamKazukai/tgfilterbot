@@ -55,6 +55,7 @@ async def save_group(bot, message):
                         pass
                 temp.MELCOW['welcome'] = await message.reply_sticker(
                                                  sticker="CAACAgUAAxkBAAEUITVkDglLmbrE00xjQRMoi1oCJyYPDQAC0gcAArwmiVSTwrq-v5Wohx4E",
+                                                 caption=f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞  𝐓𝐨 𝐂𝐡𝐚𝐧𝐧𝐞𝐥"
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
                                                                            InlineKeyboardButton('ᴊᴏɪɴ ɢʀᴏᴜᴘ', url=S_GROUP),
