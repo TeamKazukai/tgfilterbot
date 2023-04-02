@@ -112,7 +112,12 @@ async def give_filter(client, message):
                 await save_group_settings(grpid, 'auto_ffilter', False)
                 settings = await get_settings(message.chat.id)
                 if settings['auto_ffilter']:
-                    await global_filters(client, message) 
+                    await auto_filter(client, message) 
+                    try:
+                        await message.delete()
+                    except:
+                        pass
+                    await global_filters(client, message)
                     try:
                         await message.delete()
                     except:
