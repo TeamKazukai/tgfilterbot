@@ -40,6 +40,7 @@ SPELL_CHECK = {}
 FILTER_MODE = {}
 
 
+
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
     content = message.text
@@ -57,7 +58,7 @@ async def give_filter(client, message):
                 pass
             return
 
-        if LOGIN_CHANNEL and not await mute_login(client, message):
+        if LOGIN_CHANNEL and not await is_subscribed(client, message):
             try:
                 invite_link = await client.create_chat_invite_link(int(LOGIN_CHANNEL))
             except ChatAdminRequired:
@@ -2474,8 +2475,7 @@ async def manual_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        await global_filters(client, message)
-
+        return False
 
 
 
@@ -2540,4 +2540,4 @@ async def global_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        await global_filters(client, message)
+        return False
