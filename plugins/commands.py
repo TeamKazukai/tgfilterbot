@@ -113,7 +113,7 @@ async def start(client, message):
         file_id = data
 
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply(f"<b><a href='https://t.me/nasrani_batch_store'>ʏᴏᴜʀ ᴍᴏᴠɪᴇ ꜰɪʟᴇꜱ ꜱᴇɴᴅᴇᴅ ᴛʜɪꜱ ɢʀᴏᴜᴘ.. ᴄʜᴀᴇᴄᴋ</a></b>")
+        sts = await message.reply(f"<b><a href='https://t.me/NasraniChatGroup'>ʏᴏᴜʀ ᴍᴏᴠɪᴇ ꜰɪʟᴇꜱ ꜱᴇɴᴅᴇᴅ ᴛʜɪꜱ ɢʀᴏᴜᴘ.. ᴄʜᴀᴇᴄᴋ</a></b>")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -127,12 +127,13 @@ async def start(client, message):
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
+            username = message.from_user.first_name
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
             f_caption=msg.get("caption", "")
             if BATCH_FILE_CAPTION:
                 try:
-                    f_caption=BATCH_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                    f_caption=BATCH_FILE_CAPTION.format(temp.B_NAME, user_name= '' if username is None else username, file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
                 except Exception as e:
                     logger.exception(e)
                     f_caption=f_caption
@@ -159,7 +160,7 @@ async def start(client, message):
                              )
                 
                 await message.reply_text(
-                    chat_id=BATCH_GROUP,
+                    chat_id=force_channel,
                     text=script.BATCH_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),)
                     
                 
@@ -217,7 +218,7 @@ async def start(client, message):
                 media = getattr(msg, msg.media.value)
                 if BATCH_FILE_CAPTION:
                     try:
-                        f_caption=BATCH_FILE_CAPTION.format(file_name=getattr(media, 'file_name', ''), file_size=getattr(media, 'file_size', ''), file_caption=getattr(msg, 'caption', ''))
+                        f_caption=BATCH_FILE_CAPTION.format(temp.B_NAME, user_name= '' if username is None else username, file_name=getattr(media, 'file_name', ''), file_size=getattr(media, 'file_size', ''), file_caption=getattr(msg, 'caption', ''))
                     except Exception as e:
                         logger.exception(e)
                         f_caption = getattr(msg, 'caption', '')
@@ -305,7 +306,7 @@ async def start(client, message):
             await message.reply(f"<b><a href='https://t.me/NasraniChatGroup'>Thank For Using Me...</a></b>")
             await db.add_chat(message.chat.id, message.chat.title)
             await db.add_user(message.from_user.id, message.from_user.first_name)
-            mention = message.from_user.first_name
+            username = message.from_user.first_name
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = file.file_name
@@ -313,7 +314,7 @@ async def start(client, message):
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                    f_caption=CUSTOM_FILE_CAPTION.format(temp.B_NAME, user_name= '' if username is None else username, file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return
             await msg.edit_caption(f_caption)
