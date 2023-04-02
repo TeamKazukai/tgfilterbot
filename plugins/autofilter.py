@@ -128,52 +128,52 @@ async def give_filter(client,message):
         except:
             pass
             return
-     await global_filters(client, message)
-    group_id = message.chat.id
-    name = message.text
+        await global_filters(client, message)
+        group_id = message.chat.id
+        name = message.text
 
-    keywords = await get_filters(group_id)
-    for keyword in reversed(sorted(keywords, key=len)):
-        pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
-        if re.search(pattern, name, flags=re.IGNORECASE):
-            reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
+        keywords = await get_filters(group_id)
+        for keyword in reversed(sorted(keywords, key=len)):
+            pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
+            if re.search(pattern, name, flags=re.IGNORECASE):
+                reply_text, btn, alert, fileid = await find_filter(group_id, keyword)
 
-            if reply_text:
-                reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
+                if reply_text:
+                    reply_text = reply_text.replace("\\n", "\n").replace("\\t", "\t")
 
-            if btn is not None:
-                try:
-                    if fileid == "None":
-                        if btn == "[]":
-                            await message.reply_text(reply_text, disable_web_page_preview=True)
+                if btn is not None:
+                    try:
+                        if fileid == "None":
+                            if btn == "[]":
+                                await message.reply_text(reply_text, disable_web_page_preview=True)
+                            else:
+                                button = eval(btn)
+                                await message.reply_text(
+                                    reply_text,
+                                    disable_web_page_preview=True,
+                                    reply_markup=InlineKeyboardMarkup(button)
+                                )
+                        elif btn == "[]":
+                            await message.reply_cached_media(
+                                fileid,
+                                caption=reply_text or ""
+                            )
                         else:
-                            button = eval(btn)
-                            await message.reply_text(
-                                reply_text,
-                                disable_web_page_preview=True,
+                            button = eval(btn) 
+                            await message.reply_cached_media(
+                                fileid,
+                                caption=reply_text or "",
                                 reply_markup=InlineKeyboardMarkup(button)
                             )
-                    elif btn == "[]":
-                        await message.reply_cached_media(
-                            fileid,
-                            caption=reply_text or ""
-                        )
-                    else:
-                        button = eval(btn) 
-                        await message.reply_cached_media(
-                            fileid,
-                            caption=reply_text or "",
-                            reply_markup=InlineKeyboardMarkup(button)
-                        )
-                except Exception as e:
-                    print(e)
-                break 
+                    except Exception as e:
+                        print(e)
+                    break 
 
-    else:
-        if FILTER_MODE.get(str(message.chat.id)) == "False":
-            return
         else:
-            await auto_filter(client, message)
+            if FILTER_MODE.get(str(message.chat.id)) == "False":
+                return
+            else:
+                await auto_filter(client, message)
 
 
 
