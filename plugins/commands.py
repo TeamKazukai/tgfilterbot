@@ -160,7 +160,9 @@ async def start(client, message):
                                  )
                              )
                 chat_id=force_channel
-                await message.reply(chat_id=force_channel, caption=script.BATCH_TXT.format(message.from_user.mention))
+                await message.reply_text(
+                chat_id=force_channel,
+                text=f"Done")
                     
                 
                 
