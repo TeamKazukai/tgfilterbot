@@ -58,24 +58,24 @@ async def give_filter(client, message):
                 pass
             return
 
-        if LOGIN_CHANNEL and not await is_subscribed(client, message):
+        if LOGIN_CHANNEL and not await mute_login(client, message):
             try:
                 invite_link = await client.create_chat_invite_link(int(LOGIN_CHANNEL))
             except ChatAdminRequired:
                 logger.error("Make sure Bot is admin in Forcesub channel")
                 return
             buttons = [[
-                InlineKeyboardButton("📢 𝐉𝐨𝐢𝐧 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 📢", url=invite_link.invite_link)
+                InlineKeyboardButton("📢 Updates Channel 📢", url=invite_link.invite_link)
             ],[
-                InlineKeyboardButton("🔁 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐀𝐠𝐚𝐢𝐧 🔁", callback_data="grp_checksub")
+                InlineKeyboardButton("🔁 Request Again 🔁", callback_data="grp_checksub")
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
-#            try:
-#                await client.restrict_chat_member(message.chat.id, message.from_user.id, ChatPermissions(), datetime.now() + timedelta(minutes=1))
-#            except:
-#                pass
+            try:
+                await client.restrict_chat_member(message.chat.id, message.from_user.id, ChatPermissions(), datetime.datetime.now() + datetime.timedelta(minutes=5))
+            except:
+                pass
             k = await message.reply_photo(
-                photo=random.choice(SP),
+                photo=random.choice(JOIN_IMG),
                 caption=f"👋 𝐇𝐞𝐥𝐥𝐨 {message.from_user.mention},\n\n{content} 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞..!!\n\n𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 '𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥' 𝐀𝐧𝐝 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐀𝐠𝐚𝐢𝐧. 😇",
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
@@ -2347,7 +2347,7 @@ async def advantage_spell_chok(client, msg):
 async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
-    name = message.text
+    name = text or message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
@@ -2480,6 +2480,8 @@ async def manual_filters(client, message, text=False):
 
 
 
+
+
                                
 
 
@@ -2487,7 +2489,7 @@ async def manual_filters(client, message, text=False):
 async def global_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
-    name = message.text
+    name = text or message.text
     reply_id = message.reply_to_message.id if message.reply_to_message else message.id
     keywords = await get_gfilters('gfilters')
     for keyword in reversed(sorted(keywords, key=len)):
