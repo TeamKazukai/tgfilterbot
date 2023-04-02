@@ -117,11 +117,7 @@ async def give_filter(client, message):
                         await message.delete()
                     except:
                         pass
-                    await global_filters(client, message)
-                    try:
-                        await message.delete()
-                    except:
-                        pass
+                    
 
 
 
