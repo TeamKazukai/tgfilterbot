@@ -127,6 +127,7 @@ async def start(client, message):
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
+            chat_id=force_channel
             username = message.from_user.first_name
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
@@ -158,7 +159,7 @@ async def start(client, message):
                                      ]
                                  )
                              )
-                
+                chat_id=force_channel
                 await message.reply(chat_id=force_channel, caption=script.BATCH_TXT.format(message.from_user.mention))
                     
                 
