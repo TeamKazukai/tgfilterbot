@@ -65,9 +65,9 @@ async def give_filter(client, message):
                 logger.error("Make sure Bot is admin in Forcesub channel")
                 return
             buttons = [[
-                InlineKeyboardButton("📢 Updates Channel 📢", url=invite_link.invite_link)
+                InlineKeyboardButton("📢 𝐉𝐨𝐢𝐧 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 📢", url=invite_link.invite_link)
             ],[
-                InlineKeyboardButton("🔁 Request Again 🔁", callback_data="grp_checksub")
+                InlineKeyboardButton("🔁 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐀𝐠𝐚𝐢𝐧 🔁", callback_data="grp_checksub")
             ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             try:
@@ -1024,7 +1024,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    'Dɪsᴀʙʟᴇ' if settings["auto_ffilter"] else 'Eɴᴀʙʟᴇ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
@@ -1157,7 +1157,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    'Dɪsᴀʙʟᴇ' if settings["auto_ffilter"] else 'Eɴᴀʙʟᴇ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
@@ -1871,7 +1871,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Eɴᴀʙʟᴇ' if settings["auto_ffilter"] else 'Dɪsᴀʙʟᴇ',
+                    'Dɪsᴀʙʟᴇ' if settings["auto_ffilter"] else 'Eɴᴀʙʟᴇ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
