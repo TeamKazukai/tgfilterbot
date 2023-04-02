@@ -42,14 +42,6 @@ FILTER_MODE = {}
           
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
-    k = await manual_filters(client, message)
-    if k == False:
-        await global_filters(client, message)
-        
-    
-
-@Client.on_message(filters.group & filters.text & filters.incoming)
-async def give_filter(client, message):
     content = message.text
     settings = await get_settings(message.chat.id)        
     if settings["auto_ffilter"]:
@@ -104,7 +96,10 @@ async def give_filter(client, message):
         except:
             pass
             return
-        if message.chat.id != SUPPORT_CHAT_ID:            
+        if message.chat.id != SUPPORT_CHAT_ID:
+            await global_filters(client, message)          
+        manual = await manual_filters(client, message)
+        if manual == True:
             settings = await get_settings(message.chat.id)
             try:
                 if settings['auto_ffilter']:
