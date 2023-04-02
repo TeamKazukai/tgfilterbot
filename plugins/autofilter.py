@@ -117,16 +117,18 @@ async def give_filter(client,message):
                 await message.delete()
             except:
                 pass
-        else:                
-            k = await message.reply_text(f"𝐇𝐞𝐥𝐥𝐨 {message.from_user.mention},\n\n{content} 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞..!! \n\n❌️𝐀𝐮𝐭𝐨 𝐅𝐢𝐥𝐭𝐞𝐫 𝐎𝐟𝐟..!!!❌️ \n𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭..")
-            await asyncio.sleep(5)
-            await k.delete()
+        else:
+            await auto_filter(client, message)
+    else:
+        k = await message.reply_text(f"𝐇𝐞𝐥𝐥𝐨 {message.from_user.mention},\n\n{content} 𝐀𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞..!! \n\n❌️𝐀𝐮𝐭𝐨 𝐅𝐢𝐥𝐭𝐞𝐫 𝐎𝐟𝐟..!!!❌️ \n𝐏𝐥𝐞𝐚𝐬𝐞 𝐖𝐚𝐢𝐭..")
+        await asyncio.sleep(5)
+        await k.delete()
         try:
             await message.delete()
         except:
             pass
-        return
-    await global_filters(client, message)
+            return
+     await global_filters(client, message)
     group_id = message.chat.id
     name = message.text
 
