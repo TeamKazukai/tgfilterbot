@@ -90,11 +90,7 @@ async def give_filter(client, message):
                 pass
         else:
             await auto_filter(client, message)
-
-        try:
-            await message.delete()
-        except:
-            pass
+    
             return
         if message.chat.id != SUPPORT_CHAT_ID:
             await global_filters(client, message)          
