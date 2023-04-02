@@ -131,7 +131,7 @@ async def give_filter(client, message):
         if message.chat.id != SUPPORT_CHAT_ID:
             await global_filters(client, message)          
         manual = await manual_filters(client, message)
-        if manual == False:
+        if manual == True:
             settings = await get_settings(message.chat.id)
             try:
                 if settings['auto_ffilter']:
@@ -2362,9 +2362,9 @@ async def advantage_spell_chok(client, msg):
                 await asyncio.sleep(70)
                 await spell_check_del.delete()
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
-async def manual_filters(client, message):
-# async def manual_filters(client, message, text=False):
+# @Client.on_message(filters.group & filters.text & filters.incoming)
+# async def manual_filters(client, message):
+async def manual_filters(client, message, text=True):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
@@ -2497,7 +2497,7 @@ async def manual_filters(client, message):
     else:
         return False
 
-async def global_filters(client, message, text=False):
+async def global_filters(client, message, text=True):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
