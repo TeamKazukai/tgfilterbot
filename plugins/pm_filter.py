@@ -2344,8 +2344,6 @@ async def advantage_spell_chok(client, msg):
 
 
 async def manual_filters(client, message, text=False):
-async def give_filter(client,message):
-# async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = message.text
