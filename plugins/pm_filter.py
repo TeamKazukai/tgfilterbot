@@ -2499,9 +2499,9 @@ async def manual_filters(client, message, text=True):
 
 
 
-# @Client.on_message(filters.group & filters.text & filters.incoming)
-# async def manual_filters(client, message):
-async def manual_filters(client, message, text=False):
+@Client.on_message(filters.private & filters.text & filters.incoming)
+async def manual_filters(client, message):
+# async def manual_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
@@ -2559,15 +2559,15 @@ async def manual_filters(client, message, text=False):
                         )
                         
 
-                except Exception as e:
-                    logger.exception(e)
-                break
-    else:
-        return False
+#                except Exception as e:
+#                    logger.exception(e)
+#                break
+#    else:
+#        return False
 
 
 
-async def global_filters(client, message, text=True):
+async def global_filters(client, message, text=False):
     settings = await get_settings(message.chat.id)
     group_id = message.chat.id
     name = text or message.text
