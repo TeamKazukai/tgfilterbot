@@ -95,9 +95,24 @@ async def give_filter(client, message):
         except:
             pass
             return
-        k = await manual_filters(client, message)
-    if k == False:
-        await auto_filter(client, message)
+        if message.chat.id != SUPPORT_CHAT_ID:
+            await global_filters(client, message)          
+        manual = await manual_filters(client, message)
+        if manual == False:
+            settings = await get_settings(message.chat.id)
+            try:
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message)
+            except KeyError:
+                grpid = await active_connection(str(message.from_user.id))
+                await save_group_settings(grpid, 'auto_ffilter', False)
+                settings = await get_settings(message.chat.id)
+                if settings['auto_ffilter']:
+                    await auto_filter(client, message) 
+                    try:
+                        await message.delete()
+                    except:
+                        pass
 
 
 
