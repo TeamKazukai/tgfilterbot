@@ -40,6 +40,11 @@ SPELL_CHECK = {}
 FILTER_MODE = {}
 
           
+@Client.on_message(filters.group & filters.text & filters.incoming)
+async def give_filter(client, message):
+    k = await manual_filters(client, message)
+    if k == False:
+        await global_filters(client, message)
         
     
 
