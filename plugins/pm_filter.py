@@ -115,7 +115,7 @@ async def give_filter(client,message):
                 break 
 
     else:
-        await auto_filter(client, message)
+        await global_filter(client, message)
 
 
 
