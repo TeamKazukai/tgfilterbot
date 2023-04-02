@@ -95,8 +95,8 @@ async def give_filter(client, message):
         except:
             pass
             return
-#        k = await manual_filters(client, message)
-#    if k == False:
+        k = await manual_filters(client, message)
+    if k == False:
         await auto_filter(client, message)
 
 
