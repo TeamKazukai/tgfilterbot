@@ -130,7 +130,7 @@ async def give_filter(client, message):
             return
         if message.chat.id != SUPPORT_CHAT_ID:
             await global_filters(client, message)          
-        manual = await manual_filters(client, message)
+        manual = await global_filters(client, message)
         if manual == False:
             settings = await get_settings(message.chat.id)
             try:
