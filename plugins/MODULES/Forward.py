@@ -13,7 +13,7 @@ bughunter0 = Client(
 
 
 
-@Client.on_messagefilters.group & filters.forwarded)
+@Client.on_message(filters.group & filters.forwarded)
 async def channeltag(bot, message):
    try:
        chat_id = message.chat.id
