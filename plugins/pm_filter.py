@@ -2495,7 +2495,7 @@ async def manual_filters(client, message, text=True):
                     logger.exception(e)
                 break
     else:
-        return False
+        return True
 
 async def global_filters(client, message, text=True):
     settings = await get_settings(message.chat.id)
@@ -2553,4 +2553,4 @@ async def global_filters(client, message, text=True):
                     logger.exception(e)
                 break
     else:
-        return False
+        return True
