@@ -65,14 +65,14 @@ async def fil_mod(client, message):
 
 
 
-#@Client.on_message(filters.private & filters.text & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.private & filters.text & filters.incoming)
-#async def pv_filter(client, message):
-    #kd = await global_filters(client, message)
-    #if kd == False:
-        #await auto_filter(client, message)
+# @Client.on_message(filters.private & filters.text & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.private & filters.text & filters.incoming)
+# async def pv_filter(client, message):
+    # kd = await global_filters(client, message)
+    # if kd == False:
+        # await auto_filter(client, message)
 
 
-@Client.on_message((filters.group & filters.text & ~filters.edited & filters.incoming)
+@Client.on_message(filters.group & filters.text & filters.incoming)
 
 async def give_filter(client, message):
 
@@ -82,7 +82,7 @@ async def give_filter(client, message):
 
         await auto_filter(client, message)
 
-@Client.on_message((filters.group & filters.text & filters.incoming)
+@Client.on_message(filters.group & filters.text & filters.incoming)
 
 async def give_filter(client, message):
 
