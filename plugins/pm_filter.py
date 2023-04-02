@@ -2479,7 +2479,7 @@ async def manual_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        return False
+        await auto_filter(client, message)
 
 
 
@@ -2546,4 +2546,4 @@ async def global_filters(client, message, text=False):
                     logger.exception(e)
                 break
     else:
-        return False
+        await auto_filter(client, message)
