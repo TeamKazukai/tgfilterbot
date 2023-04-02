@@ -4,6 +4,10 @@ class script(object):
 ➢ ɪ'ᴍ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ 
  
 ➢ 𝖢𝗅𝗂𝖼𝗄 <b>𝖧𝖾𝗅𝗉</b> 𝗍𝗈 𝗆𝗒 𝖥𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌<a href='https://telegra.ph/file/2ab4bd4309fc808516bfa.jpg'>.</a>"""
+
+
+    BATCH_TXT = """𝐇𝐞𝐥𝐥𝐨 {},"""
+
     
     HELP_TXT = """
 ʜᴇʏ ʙʀᴏ 🥶
