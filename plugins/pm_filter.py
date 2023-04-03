@@ -806,6 +806,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if not files_:
             return await query.answer('No such file exist.')
         username = query.message.from_user.first_name
+        imdb = await get_poster(searchh) if IMDB else None
+        searchh = query.message.text
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -856,7 +858,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                              ]
                          )
                      )
-                    Joel_tgx = await query.message.reply_text(
+                    Joel_tgx = await query.message.reply_photo(
+                        photo=imdb.get('poster'),
                         script.FILE_MSG.format(query.from_user.mention, title, size),
                         parse_mode=enums.ParseMode.HTML,
                         reply_markup=InlineKeyboardMarkup(
