@@ -65,9 +65,9 @@ async def give_filter(client, message):
                 pass
             return
 
-        if LOGIN_CHANNEL and not await mute_login(client, message):
+        if AUTH_CHANNEL and not await is_subscribed(client, message):
             try:
-                invite_link = await client.create_chat_invite_link(int(LOGIN_CHANNEL))
+                invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
             except ChatAdminRequired:
                 logger.error("Make sure Bot is admin in Forcesub channel")
                 return
